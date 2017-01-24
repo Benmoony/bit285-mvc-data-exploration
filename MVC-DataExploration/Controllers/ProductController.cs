@@ -16,7 +16,17 @@ namespace MVC_DataExploration.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Products);
+            return View(db.Products);   
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        {
         }
     }
 }
