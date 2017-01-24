@@ -9,8 +9,8 @@
           <Key>
             <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="CategoryId" Type="int" Nullable="false" />
-          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoryId" Nullable="false" Type="int" />
+          <Property Name="CategoryName" MaxLength="50" Type="nvarchar" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -26,15 +26,15 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Grams" Type="nvarchar" MaxLength="10" />
+          <Property Name="Id" Nullable="false" Type="int" />
+          <Property Name="ProductID" Nullable="false" Type="int" />
+          <Property Name="Name" MaxLength="50" Type="nvarchar" />
+          <Property Name="Grams" MaxLength="10" Type="nvarchar" />
           <Property Name="Percent" Type="int" />
         </EntityType>
         <Association Name="FK_Product_Category">
-          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <End Type="Self.Category" Multiplicity="0..1" Role="Category" />
+          <End Type="Self.Product" Multiplicity="*" Role="Product" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="CategoryId" />
@@ -45,8 +45,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProductDetails_Product">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="*" />
+          <End Type="Self.Product" Multiplicity="1" Role="Product" />
+          <End Type="Self.ProductDetails" Multiplicity="*" Role="ProductDetails" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductId" />
@@ -61,12 +61,12 @@
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductDetails" EntityType="Self.ProductDetails" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="Product" EntitySet="Product" />
+            <End EntitySet="Category" Role="Category" />
+            <End EntitySet="Product" Role="Product" />
           </AssociationSet>
           <AssociationSet Name="FK_ProductDetails_Product" Association="Self.FK_ProductDetails_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End EntitySet="Product" Role="Product" />
+            <End EntitySet="ProductDetails" Role="ProductDetails" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -78,12 +78,12 @@
           <EntitySet Name="Categories" EntityType="grocertogoModel.Category" />
           <EntitySet Name="ProductDetails" EntityType="grocertogoModel.ProductDetail" />
           <AssociationSet Name="FK_Product_Category" Association="grocertogoModel.FK_Product_Category">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Product" EntitySet="Products" />
+            <End EntitySet="Categories" Role="Category" />
+            <End EntitySet="Products" Role="Product" />
           </AssociationSet>
           <AssociationSet Name="FK_ProductDetails_Product" Association="grocertogoModel.FK_ProductDetails_Product">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="ProductDetail" EntitySet="ProductDetails" />
+            <End EntitySet="Products" Role="Product" />
+            <End EntitySet="ProductDetails" Role="ProductDetail" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Product">
@@ -102,24 +102,24 @@
           <Key>
             <PropertyRef Name="CategoryId" />
           </Key>
-          <Property Name="CategoryId" Type="Int32" Nullable="false" />
-          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryId" Nullable="false" Type="Int32" />
+          <Property Name="CategoryName" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
           <NavigationProperty Name="Products" Relationship="grocertogoModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
         </EntityType>
         <EntityType Name="ProductDetail">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Grams" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Nullable="false" Type="Int32" />
+          <Property Name="ProductID" Nullable="false" Type="Int32" />
+          <Property Name="Name" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Grams" MaxLength="10" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="Percent" Type="Int32" />
           <NavigationProperty Name="Product" Relationship="grocertogoModel.FK_ProductDetails_Product" FromRole="ProductDetail" ToRole="Product" />
         </EntityType>
         <Association Name="FK_Product_Category">
-          <End Type="grocertogoModel.Category" Role="Category" Multiplicity="0..1" />
-          <End Type="grocertogoModel.Product" Role="Product" Multiplicity="*" />
+          <End Type="grocertogoModel.Category" Multiplicity="0..1" Role="Category" />
+          <End Type="grocertogoModel.Product" Multiplicity="*" Role="Product" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="CategoryId" />
@@ -130,8 +130,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProductDetails_Product">
-          <End Type="grocertogoModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="grocertogoModel.ProductDetail" Role="ProductDetail" Multiplicity="*" />
+          <End Type="grocertogoModel.Product" Multiplicity="1" Role="Product" />
+          <End Type="grocertogoModel.ProductDetail" Multiplicity="*" Role="ProductDetail" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductId" />

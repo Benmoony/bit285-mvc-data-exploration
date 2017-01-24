@@ -26,7 +26,12 @@ namespace MVC_DataExploration.Controllers
         }
 
         [HttpPost]
+        public ActionResult Create(Product myProduct)
         {
+            db.Products.Add(myProduct);
+
+            db.SaveChanges();
+            return View("Index", db.Products);
         }
     }
 }

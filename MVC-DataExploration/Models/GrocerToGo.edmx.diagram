@@ -6,8 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="523170eafd4444729fd4b079a4d663a4" Name="Diagram1">
         <EntityTypeShape EntityType="grocertogoModel.Product" Width="1.75" PointX="1" PointY="1.875" />
-        <EntityTypeShape EntityType="grocertogoModel.Category" Width="1.5" PointX="1" PointY="5" />
-        <EntityTypeShape EntityType="grocertogoModel.ProductDetail" Width="1.5" PointX="3.625" PointY="1.875" />
+        <EntityTypeShape EntityType="grocertogoModel.Category" PointX="1.25" PointY="5.125" Width="1.5" />
+        <EntityTypeShape EntityType="grocertogoModel.ProductDetail" PointX="3.5" PointY="2" Width="1.5" />
         <AssociationConnector Association="grocertogoModel.FK_Product_Category" />
         <AssociationConnector Association="grocertogoModel.FK_ProductDetails_Product" />
       </Diagram>
